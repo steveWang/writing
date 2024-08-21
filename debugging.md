@@ -1,6 +1,6 @@
 # Debugging
 
-Last updated: 2024-08-20
+Last updated: 2024-08-21
 
 ## Intro
 
@@ -43,6 +43,30 @@ of whatever incident you're chasing. Or hunting through router logs for
 weird lines about hardware faults that you don't really understand, but
 hey, you can just copy-paste those at a friendly network engineer who'll
 confirm that "yup, that line looks suspicious."
+
+Spurious correlations are, of course, very likely to trip you up, which is
+why it's important to look at history to make sure that this thing doesn't
+happen on a regular basis, even when your users aren't complaining. And
+sometimes you might see something that looks like it started about the
+right time, but the shape or the scale of the problem isn't anything close
+to big enough to explain the issues you're seeing.
+
+It's also important to think about causality when observing
+correlations. Why is this signal related to the problem you're seeing?
+Should it be a leading or lagging indicator? Does it have a common
+underlying cause? The granularity of your monitoring system's timestamps
+can end up mattering.
+
+At Google, there are at least two major timeseries monitoring systems; one
+of them would consistently seem to violate causality because of differences
+in how the two systems computed their timestamps. One system essentially
+truncated timestamps when aligned to the minute, whereas the other provided
+a backwards-looking view from the moment of collection. As such, we'd often
+see two signals that should be perfectly correlated consistently differ by
+a minute, always in the same direction. Understanding those low-level
+details (or at least reasoning about them, and convincing yourself you know
+what's going on) helps a lot with explaining weirdness that you see when
+comparing signals across data sources.
 
 ## Storytelling
 
@@ -134,7 +158,10 @@ determinative) factors:
   
   I've certainly had to field a number of phone calls over the years from
   my dad who has questions about some random Python framework that he's
-  been playing with.
+  been playing with. What's important isn't that I necessarily know the
+  answers to all of his questions (I don't), but just getting exposure to
+  that style of thinking where "You have a question about some natural
+  phenomenon -- let's write a simulation to test our intuition!"
 
 - Being a polyglot (at least in the programming language sense), out of
   necessity rather than chasing fads.
