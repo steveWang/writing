@@ -1,2 +1,2 @@
-- [about]
-- [debugging]
+- [about](about)
+- [debugging](debugging)
