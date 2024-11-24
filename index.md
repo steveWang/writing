@@ -1,2 +1,3 @@
-- [about](about)
-- [debugging](debugging)
+- [about]
+- 2024-08-20: [debugging]
+- 2024-11-24: [living at head](living-at-head)
