@@ -111,36 +111,37 @@ There are a few common workarounds that I'm aware of:
 Short version: just do something that gets you back into safe harbor.
 
 [^bonus_withholding]: There is nothing in the tax code that explicitly
-authorizes companies to withhold an arbitrary different number, even if it
-would result in a more accurate result. As such, they generally go with the
-safe option.
+	authorizes companies to withhold an arbitrary different number, even if
+	it would result in a more accurate result. As such, they generally go
+	with the safe option.
 
 [^filing_separately]: The federal tax brackets for "Married, filing
-separately" are strictly worse than remaining unmarried and filing as
-single filers. That said, I do not recommend lying to the IRS by filing as
-single filers if you are not actually single.
+	separately" are strictly worse than remaining unmarried and filing as
+	single filers. That said, I do not recommend lying to the IRS by filing
+	as single filers if you are not actually single.
 
 [^millionaires]: If you receive more than $1,000,000 in supplemental wages
-in a given year, then you're subject to a different, higher withholding
-rate, and this section does not apply to you.
+	in a given year, then you're subject to a different, higher withholding
+	rate, and this section does not apply to you.
 
 [^pre_tcja_penalty]: Prior to the TCJA, the tax brackets actually started
-diverging much sooner. In 2017, the ceiling for the 25% bracket was $91,900
-for a single filer but only $153,100 for joint filers. As such, the TCJA
-actually eliminated the marriage penalty for most filers.
+	diverging much sooner. In 2017, the ceiling for the 25% bracket was
+	$91,900 for a single filer but only $153,100 for joint filers. As such,
+	the TCJA actually eliminated the marriage penalty for most filers.
 
 [^safe_harbor]: The IRS underpayment penalty generally does not apply if
-you paid either 90% of your actual tax obligations or more than 100% of
-your obligation for the previous year.
+	you paid either 90% of your actual tax obligations or more than 100% of
+	your obligation for the previous year.
 
 [^salt]: The SALT cap was one of the more contentious points of the TCJA,
-especially since it generally has more impact on filers in states with
-higher income and property taxes, which tend to be more Democratic (but are
-also home to several more moderate Republican members of Congress). In
-practice, the tax bracket changes and the increase to the standard
-deduction are such that filers generally come out ahead. In the past, I've
-created graphs to explore when the TCJA's provisions actually would result
-in a higher overall tax burden, and my recollection is that it just didn't
-happen in low-tax states, and that the cutoff was in the very high six
-digits or possibly low seven digits in all other cases I explored. Maybe
-someday I'll try to recreate those graphs.
+	especially since it generally has more impact on filers in states with
+	higher income and property taxes, which tend to be more Democratic (but
+	are also home to several more moderate Republican members of
+	Congress). In practice, the tax bracket changes and the increase to the
+	standard deduction are such that filers generally come out ahead. In
+	the past, I've created graphs to explore when the TCJA's provisions
+	actually would result in a higher overall tax burden, and my
+	recollection is that it just didn't happen in low-tax states, and that
+	the cutoff was in the very high six digits or possibly low seven digits
+	in all other cases I explored. Maybe someday I'll try to recreate those
+	graphs.
