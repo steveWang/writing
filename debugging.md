@@ -191,6 +191,8 @@ determinative) factors:
 I still don't really know what makes someone good at debugging, but I think
 I'm closer than I was a few years ago.
 
+<hr>
+
 [^analyst]: In his words: "My job title says that I'm a network analyst,
     whatever that means." As far as his job family was concerned, the last
     time I checked, about 4 years ago, he was the equivalent of a Staff

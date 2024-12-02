@@ -119,6 +119,8 @@ Clang or the Linux kernel, and indeed, in those cases we tend to pin to a
 specific version). Perhaps we're doing something very wrong. Or perhaps
 it's just an unsolvable problem.
 
+<hr>
+
 [^silos]: Certain high-value and/or sensitive code is restricted to
     "silos". Some popular examples: security patches, much of Waymo code,
     the Google Search ranking details.

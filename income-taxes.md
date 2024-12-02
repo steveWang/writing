@@ -110,6 +110,8 @@ There are a few common workarounds that I'm aware of:
 
 Short version: just do something that gets you back into safe harbor.
 
+<hr>
+
 [^bonus_withholding]: There is nothing in the tax code that explicitly
 	authorizes companies to withhold an arbitrary different number, even if
 	it would result in a more accurate result. As such, they generally go
