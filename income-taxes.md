@@ -63,14 +63,17 @@ more than \$125,000 in 2024.
 The phase-out gets rather complex, so I'd recommend plugging in numbers
 into a calculator if you don't fit within one of the simple cases I
 outlined above, but I would not expect the marriage penalty to apply as
-long as the spouse with the lower income makes lower than \$200,000.
+long as the spouse with the lower income makes less than \$200,000.
 
 Second, there are other differences between filing jointly and filing
-individually. For instance, if you normally itemize your deductions, the
-state and local tax (SALT) deduction is capped at $10,000 per tax
-return[^salt], whether filing as a single filer or jointly. Another example
-is that in Massachusetts, we have a deduction for rent paid, which
-similarly does not have different caps for individuals versus couples.
+individually, so the tax brackets do not tell the full story. For instance,
+if you normally itemize your deductions, the state and local tax (SALT)
+deduction is capped at $10,000 per tax return[^salt], whether filing as a
+single filer or jointly. Another example is that in Massachusetts, we have
+a deduction for rent paid, which similarly does not have different caps for
+individuals versus couples. Further, there are income limits[^backdoor] for
+various deductions that may no longer apply upon getting married,
+e.g. student loan interest[^student_loans].
 
 ## RSUs and supplemental income
 
@@ -112,6 +115,10 @@ Short version: just do something that gets you back into safe harbor.
 
 <hr>
 
+[^backdoor]: Another notable income limit applies to direct Roth IRA
+    contributions, but that's more of a nuisance than anything, given the
+    existence of the backdoor Roth strategy.
+
 [^bonus_withholding]: There is nothing in the tax code that explicitly
 	authorizes companies to withhold an arbitrary different number, even if
 	it would result in a more accurate result. As such, they generally go
@@ -147,3 +154,8 @@ Short version: just do something that gets you back into safe harbor.
 	the cutoff was in the very high six digits or possibly low seven digits
 	in all other cases I explored. Maybe someday I'll try to recreate those
 	graphs.
+
+[^student_loans]: This is actually a weird example because the income limit
+	for joint filers is slightly more than twice the limit for single
+	filers, but with sufficiently asymmetric incomes, you're not going to
+	be able to claim it anyways.
