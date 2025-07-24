@@ -1,6 +1,6 @@
 # On US income taxes
 
-Last updated: 2024-12-01
+Last updated: 2025-07-24
 
 ## Why am I writing this?
 
@@ -12,6 +12,14 @@ This might seem like a pointless post to write, seeing as on paper, the
 TCJA's changes to the individual tax code are slated to expire at the end
 of next year, _but_ I would be rather surprised if Congress does not
 prioritize renewing those provisions before then.
+
+**July 2025 update: many of these provisions have indeed been renewed, at
+least for now. There are very few changes in practice for
+moderately-highly-compensated salaried employees. Chief among them is the
+increase to the SALT cap to \$40,000, phasing out between \$500,000 and
+\$600,000. Interestingly, since this now exceeds the standard deduction for
+both individuals and married couples, this introduces a new marriage
+penalty in certain situations.**
 
 One might also think that everyone already knows all of the relevant
 details by now, but I had a recent conversation that suggested
@@ -38,7 +46,7 @@ asymmetries, but it's not impossible.
 
 As a result of the TCJA[^pre_tcja_penalty], the marriage penalty does not
 exist for federal income tax if your joint income does not fall in the
-highest bracket (for 2024, this will be $751,601), as the joint filer
+highest bracket (for 2024, this will be \$751,601), as the joint filer
 bracket cutoffs are exactly double the cutoffs for single filers for all
 lower brackets.
 
@@ -52,13 +60,20 @@ the same marginal tax rate and do not fall within the highest tax bracket
 for joint filers, then there will be no impact as far as individual taxes
 are concerned.
 
+**July 2025 update: this is not quite correct. Filing separately may allow
+one or both individuals to claim the full SALT deduction, which for now has
+a high enough cap that it exceeds the standard deduction. Technically, it
+never captured all of the nuances, as there are situations where one spouse
+would have enough deductions to itemize, and the other spouse could either
+take the standard deduction, or file separately while also itemizing.**
+
 There are two further points that come to mind as I write this.
 
 First, filing jointly remains advantageous past the highest bracket. One
 trivial example is the case of a single working spouse, as the joint
-brackets are all higher than the individual brackets; this exact situation
-continues to apply as long as the spouse with the lower income makes no
-more than \$125,000 in 2024.
+brackets are all higher than the individual brackets; this exacl at
+situation continues to apply as long as the spouse with the lower income
+makes no more than \$125,000 in 2024.
 
 The phase-out gets rather complex, so I'd recommend plugging in numbers
 into a calculator if you don't fit within one of the simple cases I
@@ -68,12 +83,12 @@ long as the spouse with the lower income makes less than \$200,000.
 Second, there are other differences between filing jointly and filing
 individually, so the tax brackets do not tell the full story. For instance,
 if you normally itemize your deductions, the state and local tax (SALT)
-deduction is capped at $10,000 per tax return[^salt], whether filing as a
-single filer or jointly. Another example is that in Massachusetts, we have
-a deduction for rent paid, which similarly does not have different caps for
-individuals versus couples. Further, there are income limits[^backdoor] for
-various deductions that may no longer apply upon getting married,
-e.g. student loan interest[^student_loans].
+deduction is capped at ~~\$10,000~~ \$40,000 per tax return[^salt], whether
+filing as a single filer or jointly. Another example is that in
+Massachusetts, we have a deduction for rent paid, which similarly does not
+have different caps for individuals versus couples. Further, there are
+income limits[^backdoor] for various deductions that may no longer apply
+upon getting married, e.g. student loan interest[^student_loans].
 
 ## RSUs and supplemental income
 
@@ -129,13 +144,13 @@ Short version: just do something that gets you back into safe harbor.
 	single filers. That said, I do not recommend lying to the IRS by filing
 	as single filers if you are not actually single.
 
-[^millionaires]: If you receive more than $1,000,000 in supplemental wages
+[^millionaires]: If you receive more than \$1,000,000 in supplemental wages
 	in a given year, then you're subject to a different, higher withholding
 	rate, and this section does not apply to you.
 
 [^pre_tcja_penalty]: Prior to the TCJA, the tax brackets actually started
 	diverging much sooner. In 2017, the ceiling for the 25% bracket was
-	$91,900 for a single filer but only $153,100 for joint filers. As such,
+	\$91,900 for a single filer but only \$153,100 for joint filers. As such,
 	the TCJA actually eliminated the marriage penalty for most filers.
 
 [^safe_harbor]: The IRS underpayment penalty generally does not apply if
