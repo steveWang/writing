@@ -61,11 +61,11 @@ for joint filers, then there will be no impact as far as individual taxes
 are concerned.
 
 **July 2025 update: this is not quite correct. Filing separately may allow
-one or both individuals to claim the full SALT deduction, which for now has
-a high enough cap that it exceeds the standard deduction. Technically, it
-never captured all of the nuances, as there are situations where one spouse
-would have enough deductions to itemize, and the other spouse could either
-take the standard deduction, or file separately while also itemizing.**
+one individual to claim the full SALT deduction, which for now has a high
+enough cap that it exceeds the standard deduction. Technically, it never
+captured all of the nuances, as there are situations where one spouse would
+have enough deductions to itemize, and the other spouse could either take
+the standard deduction, or file separately while also itemizing.**
 
 There are two further points that come to mind as I write this.
 

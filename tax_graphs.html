@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/d3js/7.9.0/d3.min.js"></script>
   <script>
     const FilingStatus = {
       SINGLE: 1,
@@ -20,9 +19,32 @@
         [0.35, 626350, 751600],
         [0.37, Infinity, Infinity],
       ],
+      'CA': [
+        [0.01, 10756, 21512],
+        [0.02, 25499, 50998],
+        [0.04, 40245, 80490],
+        [0.06, 55866, 111732],
+        [0.08, 70606, 141732],
+        [0.093, 360659, 721318],
+        [0.103, 432787, 865574],
+        [0.113, 721314, 1000000],
+        [0.123, 1000000, 1442628],
+        [0.133, Infinity, Infinity],
+      ],
       'MA': [
         [0.05, 1083150, 1083150],
         [0.09, Infinity, Infinity],
+      ],
+      'IL': [
+        [0.0495, Infinity, Infinity],
+      ],
+      'OH': [
+        [0, 26050, 26050],
+        [0.0275, 100000, 100000],
+        [0.035, Infinity, Infinity],
+      ],
+      'TX': [
+        [0, Infinity, Infinity],
       ],
     };
 
@@ -46,13 +68,27 @@
     }
 
     function allTaxes(income, filingStatus) {
-      let salt = calculateTax(income, tax_brackets['MA'], filingStatus);
-      return calculateTax(income - deduction(income, salt, filingStatus), tax_brackets['US'], filingStatus) + salt;
+      let state = document.querySelector('#state').value;
+      let salt = calculateTax(income, tax_brackets[state], filingStatus);
+      return calculateTax(income - deduction(income, salt, filingStatus), tax_brackets.US, filingStatus) + salt;
     }
   </script>
 </head>
 <body>
-  For the time being, this only covers Massachusetts.
+  <p>
+    All values are for the upcoming 2025 tax year.
+  </p>
+  
+  <p>
+    State:
+    <select id="state">
+      <option>CA</option>
+      <option>IL</option>
+      <option selected>MA</option>
+      <option>OH</option>
+      <option>TX</option>
+    </select>
+  </p>
   
   <div id="graph">
     <script type="module">
@@ -68,29 +104,33 @@
       let grid = [];
       for (let x = 0; x < 1e6; x += 1e4) {
         for (let y = 0; y < 1e6; y += 1e4) {
-          grid.push({x, y, diff: score(x,y)});
+          grid.push({x, y, diff: Math.floor(score(x,y))});
         }
       }
 
-      const plot = Plot.plot({
-        height: 600,
-        width: 600,
-        x: {ticks: 10, tickRotate: -45, tickFormat: fmt},
-        y: {ticks: 10, tickRotate: -45, tickFormat: fmt},
-        color: {type: "diverging", transform: x => Math.sign(x) * Math.sqrt(Math.abs(x))},
-        marks: [
-          Plot.raster({
-            fill: score,
-            x1: 0,
-            y1: 0,
-            x2: 1e6,
-            y2: 1e6,
-          }),
-          Plot.dot(grid, {x: "x", y: "y", channels: {diff: "diff"}, tip: true}),
-        ],
-      });
-      const div = document.querySelector("#graph");
-      div.append(plot);
+      function render() {
+	const plot = Plot.plot({
+          height: 600,
+          width: 600,
+          x: {ticks: 10, tickRotate: -45, tickFormat: fmt},
+          y: {ticks: 10, tickRotate: -45, tickFormat: fmt},
+          color: {type: "diverging", transform: x => Math.sign(x) * Math.sqrt(Math.abs(x))},
+          marks: [
+            Plot.raster({
+              fill: score,
+              x1: 0,
+              y1: 0,
+              x2: 1e6,
+              y2: 1e6,
+            }),
+            Plot.dot(grid, {x: "x", y: "y", channels: {diff: "diff"}, tip: true}),
+          ],
+	});
+	const div = document.querySelector("#graph");
+	div.replaceChildren(plot);
+      }
+      render();
+      document.querySelector("#state").addEventListener("change", render);
     </script>
 
 </body>
