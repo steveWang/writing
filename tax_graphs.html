@@ -61,15 +61,15 @@
       let score = (x,y) => (
         allTaxes(x, FilingStatus.SINGLE)
           + allTaxes(y, FilingStatus.SINGLE)
-	  - allTaxes(x + y, FilingStatus.MARRIED_FILING_JOINTLY));
+          - allTaxes(x + y, FilingStatus.MARRIED_FILING_JOINTLY));
 
       let fmt = x => x >= 1e6 ? (x / 1e6) + "M" : (x / 1000) + "k";
 
       let grid = [];
       for (let x = 0; x < 1e6; x += 1e4) {
-	for (let y = 0; y < 1e6; y += 1e4) {
-	  grid.push({x, y, diff: score(x,y)});
-	}
+        for (let y = 0; y < 1e6; y += 1e4) {
+          grid.push({x, y, diff: score(x,y)});
+        }
       }
 
       const plot = Plot.plot({
@@ -86,7 +86,7 @@
             x2: 1e6,
             y2: 1e6,
           }),
-	  Plot.dot(grid, {x: "x", y: "y", channels: {diff: "diff"}, tip: true}),
+          Plot.dot(grid, {x: "x", y: "y", channels: {diff: "diff"}, tip: true}),
         ],
       });
       const div = document.querySelector("#graph");
