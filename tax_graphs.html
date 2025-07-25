@@ -29,7 +29,7 @@
     function deduction(income, salt, filingStatus) {
       let saltCap = 40000 - Math.min(30000, Math.max(0, (income - 500000) * 0.3));
       salt = Math.min(salt, saltCap);
-      return Math.max(salt, standardDeduction[filingStatus]);
+      return Math.min(income, Math.max(salt, standardDeduction[filingStatus]));
     }
 
     function calculateTax(income, brackets, filingStatus) {
@@ -47,7 +47,7 @@
 
     function allTaxes(income, filingStatus) {
       let salt = calculateTax(income, tax_brackets['MA'], filingStatus);
-      return calculateTax(income, tax_brackets['US'], filingStatus) + salt + deduction(income, salt, filingStatus);
+      return calculateTax(income - deduction(income, salt, filingStatus), tax_brackets['US'], filingStatus) + salt;
     }
   </script>
 </head>
