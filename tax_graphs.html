@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/d3js/7.9.0/d3.min.js"></script>
+  <script>
+    const FilingStatus = {
+      SINGLE: 1,
+      MARRIED_FILING_JOINTLY: 2,
+    };
+
+    const standardDeduction = [0, 15000, 30000];
+
+    let tax_brackets = {
+      'US': [
+        [0.1, 11925, 23850],
+        [0.12, 48475, 96950],
+        [0.22, 103350, 206700],
+        [0.24, 197300, 394600],
+        [0.32, 250525, 501050],
+        [0.35, 626350, 751600],
+        [0.35, 626350, 751600],
+        [0.37, Infinity, Infinity],
+      ],
+      'MA': [
+        [0.05, 1083150, 1083150],
+        [0.09, Infinity, Infinity],
+      ],
+    };
+
+    function deduction(income, salt, filingStatus) {
+      let saltCap = 40000 - Math.min(30000, Math.max(0, (income - 500000) * 0.3));
+      salt = Math.min(salt, saltCap);
+      return Math.max(salt, standardDeduction[filingStatus]);
+    }
+
+    function calculateTax(income, brackets, filingStatus) {
+      let covered = 0, taxes = 0;
+      for (let bracket of brackets) {
+        if (income < bracket[filingStatus]) {
+          taxes += (income - covered) * bracket[0];
+          break;
+        }
+        taxes += (bracket[filingStatus] - covered) * bracket[0];
+        covered = bracket[filingStatus];
+      }
+      return taxes;
+    }
+
+    function allTaxes(income, filingStatus) {
+      let salt = calculateTax(income, tax_brackets['MA'], filingStatus);
+      return calculateTax(income, tax_brackets['US'], filingStatus) + salt + deduction(income, salt, filingStatus);
+    }
+  </script>
+</head>
+<body>
+  For the time being, this only covers Massachusetts.
+  
+  <div id="graph">
+    <script type="module">
+      import * as Plot from "https://cdn.jsdelivr.net/npm/@observablehq/plot@0.6/+esm";
+
+      let score = (x,y) => (
+        allTaxes(x, FilingStatus.SINGLE)
+          + allTaxes(y, FilingStatus.SINGLE)
+	  - allTaxes(x + y, FilingStatus.MARRIED_FILING_JOINTLY));
+
+      let fmt = x => x >= 1e6 ? (x / 1e6) + "M" : (x / 1000) + "k";
+
+      let grid = [];
+      for (let x = 0; x < 1e6; x += 1e4) {
+	for (let y = 0; y < 1e6; y += 1e4) {
+	  grid.push({x, y, diff: score(x,y)});
+	}
+      }
+
+      const plot = Plot.plot({
+        height: 600,
+        width: 600,
+        x: {ticks: 10, tickRotate: -45, tickFormat: fmt},
+        y: {ticks: 10, tickRotate: -45, tickFormat: fmt},
+        color: {type: "diverging", transform: x => Math.sign(x) * Math.sqrt(Math.abs(x))},
+        marks: [
+          Plot.raster({
+            fill: score,
+            x1: 0,
+            y1: 0,
+            x2: 1e6,
+            y2: 1e6,
+          }),
+	  Plot.dot(grid, {x: "x", y: "y", channels: {diff: "diff"}, tip: true}),
+        ],
+      });
+      const div = document.querySelector("#graph");
+      div.append(plot);
+    </script>
+
+</body>
+</html>
