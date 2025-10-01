@@ -10,4 +10,4 @@ In more recent days, I've started describing my role as "I don't know
 anything about the boxes in your system architecture diagrams. I'm just in
 charge of the arrows."
 
-Github: http://github.com/steveWang
+Github: <http://github.com/steveWang>
